@@ -1,0 +1,14 @@
+{
+  "proofline:01": {
+    "1": {
+      "label": "valid_extra",
+      "reason": "Valid performance warning: ordering by (scheduled_at DESC, id DESC) without a composite index scans the full deliveries table."
+    }
+  },
+  "proofline:02": {
+    "1": {
+      "label": "valid_extra",
+      "reason": "Valid concurrency warning: streaming directly from an open SQLite cursor holds a shared read lock while blocking on stdout I/O."
+    }
+  }
+}

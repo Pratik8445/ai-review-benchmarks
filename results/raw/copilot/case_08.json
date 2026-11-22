@@ -1,0 +1,19 @@
+{
+  "run_id": "copilot-case-08-f869d7c",
+  "provider": "copilot",
+  "repo": "Pratik8445/bench-run-copilot",
+  "case_id": "08",
+  "pr_number": 8,
+  "pr_url": "https://github.com/Pratik8445/bench-run-copilot/pull/8",
+  "base_sha": "9b5ac64ab0d3ba414c5edec1e64fcdf8b3b19a1a",
+  "head_sha": "f869d7c350ead2a39bbb37b1e5b24aa4cbaa790a",
+  "context_condition": "code-only",
+  "captured_at": "2026-11-22T12:36:00.326115+00:00",
+  "terminal_outcome": "unattempted",
+  "findings": [],
+  "raw": {
+    "reviews": [],
+    "inline_comments": [],
+    "issue_comments": []
+  }
+}

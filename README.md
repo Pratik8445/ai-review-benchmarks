@@ -1,3 +1,39 @@
+# AI Code Review Benchmark — Evaluation Report
+
+## Overview & Experimental Setup
+
+To evaluate how AI code review tools perform on both code-level defects and deployment-dependent bugs, I ran the 8-case report service suite (`pilot/base` + `pilot/01` through `pilot/08`) across isolated private repositories:
+
+* **Provider Isolation:** Each reviewer was installed on its own dedicated private repository (`bench-run-proofline`, `bench-run-coderabbit`, `bench-run-greptile`, `bench-run-copilot`) initialized from `pilot/base` so no reviewer could read another reviewer's PR comments or access the `cases/` ground-truth files.
+* **Context Parity:** For Cases 01–03 and 07–08, every PR included only `title.txt` and `body.md`. For Cases 04–06, every reviewer received the exact same `evidence.md` deployment snapshot in the PR body so site-specific assertions (`elm` vs. `cedar`) were tested under identical conditions.
+* **Pre-Registered Rubric (`rubric/cases.json`):** Expected defects and clean controls were locked before capturing or scoring any review outputs:
+  * **Cases 01–03 (Code-only defects):** Tie-breaking pagination skip on duplicate `scheduled_at` (`01`), unescaped CSV output after dropping `csv.writer` (`02`), and dropped remainder batches when `len(jobs) % 20 != 0` (`03`).
+  * **Cases 04–06 (Deployment-evidence defects):** Dropping `legacy_format` while `workers-17` still polls it on `elm` (`04`), raising `EXPORT_BATCH_SIZE` to `50` above `cedar`'s `max_rows_per_request: 40` limit (`05`), and routing to `report-dispatch` where `elm` workers only subscribe to `reports` (`06`).
+  * **Cases 07–08 (Clean controls):** Valid partial index for `deliver_due()` (`07`) and consistent `total = sent + waiting` summary field (`08`).
+
+## Results & Denominators
+
+See `results/BENCHMARK_RESULTS.md` and `results/scored.json` for full per-finding details.
+
+* **CodeRabbit (`8/8` completed):** Caught **6/6 (100.0%)** defects across both code-only and deployment-snapshot cases, and stayed quiet on both clean controls (`2/2` clean pass rate after filtering non-finding status banners).
+* **Proofline (`6/8` completed; Cases 05 and 08 unattempted):** Caught **4/5 (80.0%)** of the defect PRs it reviewed (`01`, `02`, `03`, and `06`). In Case 04, Proofline missed the site-specific `elm` `workers-17` conflict from `evidence.md` and instead flagged general `PRAGMA user_version` migration concurrency and `ALTER TABLE DROP COLUMN` table-rewrite latency. On Cases 01 and 02, Proofline also surfaced two valid extra operational warnings (missing composite index on `(scheduled_at, id)` causing full table scans, and holding a SQLite shared read lock while streaming to stdout). On clean control Case 07, it repeated the two pre-existing `migrate()` concurrency warnings.
+* **Greptile & Copilot (`0/8` each):** Left unattempted in this run and tracked explicitly in the 32-cell coverage matrix rather than omitted from denominators.
+
+## Adjudication & Harness Verification
+
+* **Capture & Scoring (`benchmark/capture.py`, `benchmark/score.py`):** Pulls PR metadata, commits, inline review comments, reviews, and issue comments via `gh api`, deduplicates webhook retries by GitHub object ID, excludes non-finding status banners, and supports `--resume` for interrupted runs.
+* **Adjudications (`rubric/adjudications.json`):** Manually reviewed every finding in `results/scored.json` and classified Proofline's secondary database-locking and index-scan warnings on Cases 01–02 as `valid_extra` so they are distinguished from false positives.
+* **Unit Tests:** Verified via `python -m unittest discover -s tests -v` (and GitHub Actions `check.yml`).
+
+## CI & Lambda Verification Trace
+
+* **Local Lambda Package & Smoke Verification (`aws/deploy.py`):**
+  * Built deployment artifact via `python aws/deploy.py package --output review-bench-stack.json` and executed `python aws/deploy.py smoke --template review-bench-stack.json`.
+  * Verified output at commit `552f9f2b2c9bda0adcc6fa78c36a1461671796f3`:
+    `{"commit": "552f9f2b2c9bda0adcc6fa78c36a1461671796f3", "request_id": "local-smoke", "report": "Weekly orders", "delivered_this_run": 1, "receipt_at": 101, "summary": {"delivered": 1, "pending": 0}}`
+* **AWS Cost Control:** Kept run strictly at **$0.00** out of pocket by validating packaging and SQLite handler execution locally alongside GitHub Actions CI (`check.yml`).
+
+---
 # AI Review Benchmarks
 
 **Build a system for comparing AI pull request reviewers, then use it to run as many distinct reviewers as you can on the same changes.** We give you a Python application, eight review cases, and a way to deploy the application to AWS. You own the experiment: how to add a reviewer, what each reviewer sees, how to capture its first response, and how to decide whether a finding is right.
@@ -29,3 +65,4 @@ Many reviewers offer free reviews, credits, or trials. Greptile lists a free Sta
 ## Submit your work
 
 Open a PR in your private working repository with your benchmark code, rerun instructions, coverage table, and a short report. Pick one result and take us from the commit and original review comment to the behavior you verified and the score you assigned. Explain one limitation that could change your conclusion. Give the hiring team read access to the PR and its evidence, and share the link through the application route for your role. [Proofline careers](https://proofline.sh/careers/)
+

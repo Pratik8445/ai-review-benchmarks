@@ -1,0 +1,92 @@
+{
+  "protocol_version": "1.0.0",
+  "context_condition": "code_plus_deployment_snapshot_on_04_06",
+  "cases": [
+    {
+      "case_id": "01",
+      "title": "Page report history by scheduled time",
+      "has_defect": true,
+      "requires_deployment_evidence": false,
+      "expected_defect": {
+        "file": "reports.py",
+        "summary": "Cursor pagination skips rows sharing the boundary scheduled_at timestamp because next_cursor stores only scheduled_at and filters WHERE scheduled_at < ?, ignoring the id tie-breaker when multiple reports share the same second.",
+        "keywords": ["scheduled_at", "cursor", "tie", "same second", "duplicate", "skip", "id"]
+      }
+    },
+    {
+      "case_id": "02",
+      "title": "Stream the report export",
+      "has_defect": true,
+      "requires_deployment_evidence": false,
+      "expected_defect": {
+        "file": "reports.py",
+        "summary": "Replacing csv.writer with ','.join(map(str, row)) removes RFC 4180 CSV quoting/escaping, corrupting output when report names contain commas, quotes, or newlines.",
+        "keywords": ["csv", "escape", "escaping", "quote", "quoting", "comma", "delimiter", "newline"]
+      }
+    },
+    {
+      "case_id": "03",
+      "title": "Batch queued deliveries",
+      "has_defect": true,
+      "requires_deployment_evidence": false,
+      "expected_defect": {
+        "file": "reports.py",
+        "summary": "range(0, len(jobs) - batch_size + 1, batch_size) drops remainder jobs when len(jobs) is not a multiple of 20 (including any queue with < 20 jobs), leaving due jobs undelivered.",
+        "keywords": ["remainder", "batch_size", "20", "fewer than", "less than", "drop", "skip", "range", "leftover"]
+      }
+    },
+    {
+      "case_id": "04",
+      "title": "Retire the legacy delivery column",
+      "has_defect": true,
+      "requires_deployment_evidence": true,
+      "affected_site": "elm",
+      "safe_site": "cedar",
+      "expected_defect": {
+        "file": "migrations/002_retire_format.sql",
+        "summary": "Dropping legacy_format during an online migration breaks active workers-17 replicas on site 'elm' that still execute SELECT id, legacy_format FROM deliveries.",
+        "keywords": ["elm", "workers-17", "legacy_format", "poll_sql", "online", "active worker"]
+      }
+    },
+    {
+      "case_id": "05",
+      "title": "Increase export batch size",
+      "has_defect": true,
+      "requires_deployment_evidence": true,
+      "affected_site": "cedar",
+      "safe_site": "elm",
+      "expected_defect": {
+        "file": "reports.py",
+        "summary": "Increasing EXPORT_BATCH_SIZE from 25 to 50 exceeds max_rows_per_request=40 on site 'cedar' (archive-11), causing oversized archive requests (70 ready rows) to be rejected in full.",
+        "keywords": ["cedar", "40", "max_rows_per_request", "archive-11", "reject", "50"]
+      }
+    },
+    {
+      "case_id": "06",
+      "title": "Use the new delivery queue",
+      "has_defect": true,
+      "requires_deployment_evidence": true,
+      "affected_site": "elm",
+      "safe_site": "cedar",
+      "expected_defect": {
+        "file": "reports.py",
+        "summary": "Routing new deliveries to 'report-dispatch' strands 8 due jobs on site 'elm' because elm workers only subscribe to ['reports'].",
+        "keywords": ["elm", "report-dispatch", "subscribed_queues", "reports", "unconsumed", "stranded"]
+      }
+    },
+    {
+      "case_id": "07",
+      "title": "Index pending deliveries",
+      "has_defect": false,
+      "requires_deployment_evidence": false,
+      "expected_defect": null
+    },
+    {
+      "case_id": "08",
+      "title": "Include a total in the activity summary",
+      "has_defect": false,
+      "requires_deployment_evidence": false,
+      "expected_defect": null
+    }
+  ]
+}

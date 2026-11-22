@@ -1,0 +1,254 @@
+{
+  "run_id": "greptile-case-07-68ef658",
+  "provider": "greptile",
+  "repo": "Pratik8445/bench-run-greptile",
+  "case_id": "07",
+  "pr_number": 7,
+  "pr_url": "https://github.com/Pratik8445/bench-run-greptile/pull/7",
+  "base_sha": "9b5ac64ab0d3ba414c5edec1e64fcdf8b3b19a1a",
+  "head_sha": "68ef658388c5cc9ec890d030918fb6a0b36ea369",
+  "context_condition": "code-only",
+  "captured_at": "2026-11-22T12:35:39.932227+00:00",
+  "terminal_outcome": "unattempted",
+  "findings": [],
+  "raw": {
+    "reviews": [
+      {
+        "id": 6011739304,
+        "node_id": "PRR_kwDOV3dQ688AAAABZlPcqA",
+        "user": {
+          "login": "prooflinedev[bot]",
+          "id": 318282779,
+          "node_id": "BOT_kgDOEvicGw",
+          "avatar_url": "https://avatars.githubusercontent.com/in/4636559?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/prooflinedev%5Bbot%5D",
+          "html_url": "https://github.com/apps/prooflinedev",
+          "followers_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "<!-- proofline:review-comment -->\n<!-- proofline:review-publication:d15ac0fc-4816-4099-a8ee-a643e4f90f46 -->\n**Proofline** has 2 new findings to review.\n\n[View full review in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202cc-8750-73ce-b8ef-f0fb093c13ba)\n\n<!-- proofline:published-findings -->\n<!-- proofline:published-finding-series=01a202ce-582d-74d2-9cc2-794973d1122d -->\n<!-- proofline:published-thread-series=01a202ce-582d-74d2-9cc2-794973d1122d -->\n<!-- proofline:published-finding-series=01a202ce-5831-770f-adb4-135c65122756 -->\n<!-- proofline:published-thread-series=01a202ce-5831-770f-adb4-135c65122756 -->\n<!-- /proofline:published-findings -->\n<!-- proofline:published-code=01a202ce-5833-7461-83b8-e3ff04e0285d -->\n<!-- proofline:published-code-thread=01a202ce-5833-7461-83b8-e3ff04e0285d -->\n<!-- proofline:published-code=01a202ce-5839-721f-8339-4d11eccfbd40 -->\n<!-- proofline:published-code-thread=01a202ce-5839-721f-8339-4d11eccfbd40 -->",
+        "state": "COMMENTED",
+        "html_url": "https://github.com/Pratik8445/bench-run-greptile/pull/7#pullrequestreview-6011739304",
+        "pull_request_url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/7",
+        "author_association": "NONE",
+        "is_copilot_code_review": false,
+        "copilot_code_review_effort": null,
+        "_links": {
+          "html": {
+            "href": "https://github.com/Pratik8445/bench-run-greptile/pull/7#pullrequestreview-6011739304"
+          },
+          "pull_request": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/7"
+          }
+        },
+        "submitted_at": "2026-11-22T10:30:10Z",
+        "commit_id": "68ef658388c5cc9ec890d030918fb6a0b36ea369"
+      }
+    ],
+    "inline_comments": [
+      {
+        "url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/comments/4657712590",
+        "pull_request_review_id": 6011739304,
+        "id": 4657712590,
+        "node_id": "PRRC_kwDOV3dQ688AAAABFZ8Nzg",
+        "diff_hunk": "@@ -0,0 +1,2 @@\n+CREATE INDEX deliveries_due_by_queue ON deliveries (queue, scheduled_at, id)",
+        "path": "migrations/002_pending_by_queue.sql",
+        "commit_id": "68ef658388c5cc9ec890d030918fb6a0b36ea369",
+        "original_commit_id": "68ef658388c5cc9ec890d030918fb6a0b36ea369",
+        "user": {
+          "login": "prooflinedev[bot]",
+          "id": 318282779,
+          "node_id": "BOT_kgDOEvicGw",
+          "avatar_url": "https://avatars.githubusercontent.com/in/4636559?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/prooflinedev%5Bbot%5D",
+          "html_url": "https://github.com/apps/prooflinedev",
+          "followers_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "<!-- proofline:finding-series=01a202ce-582d-74d2-9cc2-794973d1122d -->\n**Serious** \u00b7 Concurrent startups can abort during the version-2 upgrade\n\nTwo console invocations can both read `user_version = 1` before either migrates. After one commits, the other still attempts to create `deliveries_due_by_queue`.\n\nSQLite raises an index-already-exists error before the second command runs.\n\nAcquire the write transaction with `BEGIN IMMEDIATE` before reading `user_version`, and apply pending migrations within that transaction.\n\n<details>\n<summary>Details</summary>\n\nThe specific failure on a version-1 database comes from the newly added migration. Before this change, version-1 databases skipped all migration DDL, although the same stale-version pattern could race during initial database creation.\n\n</details>\n\n[View finding in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202cc-8750-73ce-b8ef-f0fb093c13ba/findings/01a202ce-5833-7461-83b8-e3ff04e0285d)",
+        "created_at": "2026-11-22T10:30:10Z",
+        "updated_at": "2026-11-22T10:30:10Z",
+        "html_url": "https://github.com/Pratik8445/bench-run-greptile/pull/7#discussion_r4657712590",
+        "pull_request_url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/7",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/comments/4657712590"
+          },
+          "html": {
+            "href": "https://github.com/Pratik8445/bench-run-greptile/pull/7#discussion_r4657712590"
+          },
+          "pull_request": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/7"
+          }
+        },
+        "reactions": {
+          "url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/comments/4657712590/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "start_line": null,
+        "original_start_line": null,
+        "start_side": null,
+        "line": 1,
+        "original_line": 1,
+        "side": "RIGHT",
+        "author_association": "NONE",
+        "original_position": 1,
+        "position": 1,
+        "subject_type": "line",
+        "is_copilot_code_review": false,
+        "copilot_code_review_severity": null,
+        "copilot_code_review_sources": []
+      },
+      {
+        "url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/comments/4657712592",
+        "pull_request_review_id": 6011739304,
+        "id": 4657712592,
+        "node_id": "PRRC_kwDOV3dQ688AAAABFZ8N0A",
+        "diff_hunk": "@@ -0,0 +1,2 @@\n+CREATE INDEX deliveries_due_by_queue ON deliveries (queue, scheduled_at, id)\n+WHERE delivered_at IS NULL;",
+        "path": "migrations/002_pending_by_queue.sql",
+        "commit_id": "68ef658388c5cc9ec890d030918fb6a0b36ea369",
+        "original_commit_id": "68ef658388c5cc9ec890d030918fb6a0b36ea369",
+        "user": {
+          "login": "prooflinedev[bot]",
+          "id": 318282779,
+          "node_id": "BOT_kgDOEvicGw",
+          "avatar_url": "https://avatars.githubusercontent.com/in/4636559?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/prooflinedev%5Bbot%5D",
+          "html_url": "https://github.com/apps/prooflinedev",
+          "followers_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "<!-- proofline:finding-series=01a202ce-5831-770f-adb4-135c65122756 -->\n**Warning** \u00b7 First history request after upgrade scans the entire delivery table\n\nThis change builds the partial index before dispatching `history`, scanning every delivery even if none are pending.\n\nOn a version-1 database, `history --limit 1` waits for an extra O(N) scan of N deliveries before fetching at most two rows, unlike before this change.\n\nBuild the index in an explicit upgrade step before serving history requests.\n\n[View finding in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202cc-8750-73ce-b8ef-f0fb093c13ba/findings/01a202ce-5839-721f-8339-4d11eccfbd40)",
+        "created_at": "2026-11-22T10:30:10Z",
+        "updated_at": "2026-11-22T10:30:10Z",
+        "html_url": "https://github.com/Pratik8445/bench-run-greptile/pull/7#discussion_r4657712592",
+        "pull_request_url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/7",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/comments/4657712592"
+          },
+          "html": {
+            "href": "https://github.com/Pratik8445/bench-run-greptile/pull/7#discussion_r4657712592"
+          },
+          "pull_request": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/7"
+          }
+        },
+        "reactions": {
+          "url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/comments/4657712592/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "start_line": 1,
+        "original_start_line": 1,
+        "start_side": "RIGHT",
+        "line": 2,
+        "original_line": 2,
+        "side": "RIGHT",
+        "author_association": "NONE",
+        "original_position": 2,
+        "position": 2,
+        "subject_type": "line",
+        "is_copilot_code_review": false,
+        "copilot_code_review_severity": null,
+        "copilot_code_review_sources": []
+      }
+    ],
+    "issue_comments": [
+      {
+        "url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/issues/comments/7078592904",
+        "html_url": "https://github.com/Pratik8445/bench-run-greptile/pull/7#issuecomment-7078592904",
+        "issue_url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/issues/7",
+        "id": 7078592904,
+        "node_id": "IC_kwDOV3dQ688AAAABperBiA",
+        "user": {
+          "login": "Pratik8445",
+          "id": 172166261,
+          "node_id": "U_kgDOCkMMdQ",
+          "avatar_url": "https://avatars.githubusercontent.com/u/172166261?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Pratik8445",
+          "html_url": "https://github.com/Pratik8445",
+          "followers_url": "https://api.github.com/users/Pratik8445/followers",
+          "following_url": "https://api.github.com/users/Pratik8445/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Pratik8445/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Pratik8445/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Pratik8445/subscriptions",
+          "organizations_url": "https://api.github.com/users/Pratik8445/orgs",
+          "repos_url": "https://api.github.com/users/Pratik8445/repos",
+          "events_url": "https://api.github.com/users/Pratik8445/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Pratik8445/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "created_at": "2026-11-22T11:40:11Z",
+        "updated_at": "2026-11-22T11:40:11Z",
+        "body": "@greptileai",
+        "author_association": "OWNER",
+        "reactions": {
+          "url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/issues/comments/7078592904/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "performed_via_github_app": null,
+        "minimized": null
+      }
+    ]
+  }
+}

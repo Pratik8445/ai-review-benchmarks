@@ -1,0 +1,66 @@
+{
+  "run_id": "greptile-case-08-f869d7c",
+  "provider": "greptile",
+  "repo": "Pratik8445/bench-run-greptile",
+  "case_id": "08",
+  "pr_number": 8,
+  "pr_url": "https://github.com/Pratik8445/bench-run-greptile/pull/8",
+  "base_sha": "9b5ac64ab0d3ba414c5edec1e64fcdf8b3b19a1a",
+  "head_sha": "f869d7c350ead2a39bbb37b1e5b24aa4cbaa790a",
+  "context_condition": "code-only",
+  "captured_at": "2026-11-22T12:35:42.187824+00:00",
+  "terminal_outcome": "unattempted",
+  "findings": [],
+  "raw": {
+    "reviews": [],
+    "inline_comments": [],
+    "issue_comments": [
+      {
+        "url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/issues/comments/7078593452",
+        "html_url": "https://github.com/Pratik8445/bench-run-greptile/pull/8#issuecomment-7078593452",
+        "issue_url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/issues/8",
+        "id": 7078593452,
+        "node_id": "IC_kwDOV3dQ688AAAABperDrA",
+        "user": {
+          "login": "Pratik8445",
+          "id": 172166261,
+          "node_id": "U_kgDOCkMMdQ",
+          "avatar_url": "https://avatars.githubusercontent.com/u/172166261?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Pratik8445",
+          "html_url": "https://github.com/Pratik8445",
+          "followers_url": "https://api.github.com/users/Pratik8445/followers",
+          "following_url": "https://api.github.com/users/Pratik8445/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Pratik8445/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Pratik8445/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Pratik8445/subscriptions",
+          "organizations_url": "https://api.github.com/users/Pratik8445/orgs",
+          "repos_url": "https://api.github.com/users/Pratik8445/repos",
+          "events_url": "https://api.github.com/users/Pratik8445/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Pratik8445/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "created_at": "2026-11-22T11:40:14Z",
+        "updated_at": "2026-11-22T11:40:14Z",
+        "body": "@greptileai",
+        "author_association": "OWNER",
+        "reactions": {
+          "url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/issues/comments/7078593452/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "performed_via_github_app": null,
+        "minimized": null
+      }
+    ]
+  }
+}
