@@ -3,6 +3,7 @@
     "provider": "proofline",
     "case_id": "01",
     "terminal_outcome": "completed",
+    "isolation_status": "isolated",
     "has_defect": true,
     "defect_caught": true,
     "true_positives": 1,
@@ -12,6 +13,7 @@
     "finding_notes": [
       {
         "finding_index": 0,
+        "finding_key": "inline_comment:4657701727",
         "source_id": 4657701727,
         "path": "reports.py",
         "line": 45,
@@ -21,6 +23,7 @@
       },
       {
         "finding_index": 1,
+        "finding_key": "inline_comment:4657701731",
         "source_id": 4657701731,
         "path": "reports.py",
         "line": 45,
@@ -34,6 +37,7 @@
     "provider": "proofline",
     "case_id": "02",
     "terminal_outcome": "completed",
+    "isolation_status": "isolated",
     "has_defect": true,
     "defect_caught": true,
     "true_positives": 1,
@@ -43,6 +47,7 @@
     "finding_notes": [
       {
         "finding_index": 0,
+        "finding_key": "inline_comment:4657702811",
         "source_id": 4657702811,
         "path": "reports.py",
         "line": 52,
@@ -52,6 +57,7 @@
       },
       {
         "finding_index": 1,
+        "finding_key": "inline_comment:4657702812",
         "source_id": 4657702812,
         "path": "reports.py",
         "line": 55,
@@ -65,6 +71,7 @@
     "provider": "proofline",
     "case_id": "03",
     "terminal_outcome": "completed",
+    "isolation_status": "isolated",
     "has_defect": true,
     "defect_caught": true,
     "true_positives": 1,
@@ -74,6 +81,7 @@
     "finding_notes": [
       {
         "finding_index": 0,
+        "finding_key": "inline_comment:4657701962",
         "source_id": 4657701962,
         "path": "reports.py",
         "line": 76,
@@ -87,6 +95,7 @@
     "provider": "proofline",
     "case_id": "04",
     "terminal_outcome": "completed",
+    "isolation_status": "isolated",
     "has_defect": true,
     "defect_caught": false,
     "true_positives": 0,
@@ -96,6 +105,7 @@
     "finding_notes": [
       {
         "finding_index": 0,
+        "finding_key": "inline_comment:4657706957",
         "source_id": 4657706957,
         "path": "migrations/002_retire_format.sql",
         "line": 1,
@@ -105,6 +115,7 @@
       },
       {
         "finding_index": 1,
+        "finding_key": "inline_comment:4657706958",
         "source_id": 4657706958,
         "path": "migrations/002_retire_format.sql",
         "line": 1,
@@ -118,6 +129,7 @@
     "provider": "proofline",
     "case_id": "05",
     "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
     "has_defect": true,
     "defect_caught": false,
     "true_positives": 0,
@@ -130,20 +142,22 @@
     "provider": "proofline",
     "case_id": "06",
     "terminal_outcome": "completed",
+    "isolation_status": "isolated",
     "has_defect": true,
-    "defect_caught": true,
-    "true_positives": 1,
-    "false_positives": 0,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 1,
     "valid_extra_warnings": 0,
     "ambiguous_findings": 0,
     "finding_notes": [
       {
         "finding_index": 0,
+        "finding_key": "inline_comment:4657704766",
         "source_id": 4657704766,
         "path": "reports.py",
         "line": 9,
-        "label": "true_positive",
-        "reason": "Matched ground-truth defect in reports.py",
+        "label": "false_positive",
+        "reason": "Flagged quickstart worker instead of identifying site elm's subscribed_queues=['reports'] mismatch in evidence.md.",
         "excerpt": "<!-- proofline:finding-series=01a202cb-89d6-77ac-b08b-c7225b25c96c --> **Warning** \u00b7 Quickstart worker leaves the scheduled report pending  This change schedules jobs on `report-di"
       }
     ]
@@ -152,6 +166,7 @@
     "provider": "proofline",
     "case_id": "07",
     "terminal_outcome": "completed",
+    "isolation_status": "isolated",
     "has_defect": false,
     "defect_caught": false,
     "true_positives": 0,
@@ -161,6 +176,7 @@
     "finding_notes": [
       {
         "finding_index": 0,
+        "finding_key": "inline_comment:4657705167",
         "source_id": 4657705167,
         "path": "migrations/002_pending_by_queue.sql",
         "line": 2,
@@ -170,6 +186,7 @@
       },
       {
         "finding_index": 1,
+        "finding_key": "inline_comment:4657705168",
         "source_id": 4657705168,
         "path": "migrations/002_pending_by_queue.sql",
         "line": 2,
@@ -183,6 +200,7 @@
     "provider": "proofline",
     "case_id": "08",
     "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
     "has_defect": false,
     "defect_caught": false,
     "true_positives": 0,
@@ -195,6 +213,7 @@
     "provider": "coderabbit",
     "case_id": "01",
     "terminal_outcome": "completed",
+    "isolation_status": "non_blind_prior_bot_visible",
     "has_defect": true,
     "defect_caught": true,
     "true_positives": 1,
@@ -204,6 +223,7 @@
     "finding_notes": [
       {
         "finding_index": 0,
+        "finding_key": "inline_comment:4657934502",
         "source_id": 4657934502,
         "path": "reports.py",
         "line": 45,
@@ -213,6 +233,7 @@
       },
       {
         "finding_index": 1,
+        "finding_key": "review_summary:6012023621",
         "source_id": 6012023621,
         "path": null,
         "line": null,
@@ -226,6 +247,7 @@
     "provider": "coderabbit",
     "case_id": "02",
     "terminal_outcome": "completed",
+    "isolation_status": "non_blind_prior_bot_visible",
     "has_defect": true,
     "defect_caught": true,
     "true_positives": 1,
@@ -235,6 +257,7 @@
     "finding_notes": [
       {
         "finding_index": 0,
+        "finding_key": "inline_comment:4657935745",
         "source_id": 4657935745,
         "path": "reports.py",
         "line": 56,
@@ -244,6 +267,7 @@
       },
       {
         "finding_index": 1,
+        "finding_key": "review_summary:6012025009",
         "source_id": 6012025009,
         "path": null,
         "line": null,
@@ -257,6 +281,7 @@
     "provider": "coderabbit",
     "case_id": "03",
     "terminal_outcome": "completed",
+    "isolation_status": "non_blind_prior_bot_visible",
     "has_defect": true,
     "defect_caught": true,
     "true_positives": 1,
@@ -266,6 +291,7 @@
     "finding_notes": [
       {
         "finding_index": 0,
+        "finding_key": "inline_comment:4657933973",
         "source_id": 4657933973,
         "path": "reports.py",
         "line": 78,
@@ -275,6 +301,7 @@
       },
       {
         "finding_index": 1,
+        "finding_key": "review_summary:6012023010",
         "source_id": 6012023010,
         "path": null,
         "line": null,
@@ -288,6 +315,7 @@
     "provider": "coderabbit",
     "case_id": "04",
     "terminal_outcome": "completed",
+    "isolation_status": "non_blind_prior_bot_visible",
     "has_defect": true,
     "defect_caught": true,
     "true_positives": 1,
@@ -297,6 +325,7 @@
     "finding_notes": [
       {
         "finding_index": 0,
+        "finding_key": "inline_comment:4657933824",
         "source_id": 4657933824,
         "path": "migrations/002_retire_format.sql",
         "line": 1,
@@ -306,6 +335,7 @@
       },
       {
         "finding_index": 1,
+        "finding_key": "review_summary:6012022836",
         "source_id": 6012022836,
         "path": null,
         "line": null,
@@ -319,6 +349,7 @@
     "provider": "coderabbit",
     "case_id": "05",
     "terminal_outcome": "completed",
+    "isolation_status": "isolated",
     "has_defect": true,
     "defect_caught": true,
     "true_positives": 1,
@@ -328,6 +359,7 @@
     "finding_notes": [
       {
         "finding_index": 0,
+        "finding_key": "review_summary:6012025980",
         "source_id": 6012025980,
         "path": null,
         "line": null,
@@ -341,6 +373,7 @@
     "provider": "coderabbit",
     "case_id": "06",
     "terminal_outcome": "completed",
+    "isolation_status": "non_blind_prior_bot_visible",
     "has_defect": true,
     "defect_caught": true,
     "true_positives": 1,
@@ -350,6 +383,7 @@
     "finding_notes": [
       {
         "finding_index": 0,
+        "finding_key": "inline_comment:4657935755",
         "source_id": 4657935755,
         "path": "reports.py",
         "line": 9,
@@ -359,6 +393,7 @@
       },
       {
         "finding_index": 1,
+        "finding_key": "review_summary:6012025018",
         "source_id": 6012025018,
         "path": null,
         "line": null,
@@ -371,7 +406,8 @@
   {
     "provider": "coderabbit",
     "case_id": "07",
-    "terminal_outcome": "completed",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "non_blind_prior_bot_visible",
     "has_defect": false,
     "defect_caught": false,
     "true_positives": 0,
@@ -383,7 +419,8 @@
   {
     "provider": "coderabbit",
     "case_id": "08",
-    "terminal_outcome": "completed",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "isolated",
     "has_defect": false,
     "defect_caught": false,
     "true_positives": 0,
@@ -395,7 +432,8 @@
   {
     "provider": "greptile",
     "case_id": "01",
-    "terminal_outcome": "unattempted",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "non_blind_prior_bot_visible",
     "has_defect": true,
     "defect_caught": false,
     "true_positives": 0,
@@ -407,7 +445,8 @@
   {
     "provider": "greptile",
     "case_id": "02",
-    "terminal_outcome": "unattempted",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "non_blind_prior_bot_visible",
     "has_defect": true,
     "defect_caught": false,
     "true_positives": 0,
@@ -419,7 +458,8 @@
   {
     "provider": "greptile",
     "case_id": "03",
-    "terminal_outcome": "unattempted",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "non_blind_prior_bot_visible",
     "has_defect": true,
     "defect_caught": false,
     "true_positives": 0,
@@ -431,7 +471,8 @@
   {
     "provider": "greptile",
     "case_id": "04",
-    "terminal_outcome": "unattempted",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "non_blind_prior_bot_visible",
     "has_defect": true,
     "defect_caught": false,
     "true_positives": 0,
@@ -443,7 +484,8 @@
   {
     "provider": "greptile",
     "case_id": "05",
-    "terminal_outcome": "unattempted",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "isolated",
     "has_defect": true,
     "defect_caught": false,
     "true_positives": 0,
@@ -455,7 +497,8 @@
   {
     "provider": "greptile",
     "case_id": "06",
-    "terminal_outcome": "unattempted",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "non_blind_prior_bot_visible",
     "has_defect": true,
     "defect_caught": false,
     "true_positives": 0,
@@ -467,7 +510,8 @@
   {
     "provider": "greptile",
     "case_id": "07",
-    "terminal_outcome": "unattempted",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "non_blind_prior_bot_visible",
     "has_defect": false,
     "defect_caught": false,
     "true_positives": 0,
@@ -479,7 +523,8 @@
   {
     "provider": "greptile",
     "case_id": "08",
-    "terminal_outcome": "unattempted",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "isolated",
     "has_defect": false,
     "defect_caught": false,
     "true_positives": 0,
@@ -492,6 +537,7 @@
     "provider": "copilot",
     "case_id": "01",
     "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
     "has_defect": true,
     "defect_caught": false,
     "true_positives": 0,
@@ -504,6 +550,7 @@
     "provider": "copilot",
     "case_id": "02",
     "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
     "has_defect": true,
     "defect_caught": false,
     "true_positives": 0,
@@ -516,6 +563,7 @@
     "provider": "copilot",
     "case_id": "03",
     "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
     "has_defect": true,
     "defect_caught": false,
     "true_positives": 0,
@@ -528,6 +576,7 @@
     "provider": "copilot",
     "case_id": "04",
     "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
     "has_defect": true,
     "defect_caught": false,
     "true_positives": 0,
@@ -540,6 +589,7 @@
     "provider": "copilot",
     "case_id": "05",
     "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
     "has_defect": true,
     "defect_caught": false,
     "true_positives": 0,
@@ -552,6 +602,7 @@
     "provider": "copilot",
     "case_id": "06",
     "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
     "has_defect": true,
     "defect_caught": false,
     "true_positives": 0,
@@ -564,6 +615,7 @@
     "provider": "copilot",
     "case_id": "07",
     "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
     "has_defect": false,
     "defect_caught": false,
     "true_positives": 0,
@@ -576,6 +628,7 @@
     "provider": "copilot",
     "case_id": "08",
     "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
     "has_defect": false,
     "defect_caught": false,
     "true_positives": 0,

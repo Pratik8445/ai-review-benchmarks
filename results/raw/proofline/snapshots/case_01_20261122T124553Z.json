@@ -1,0 +1,228 @@
+{
+  "run_id": "proofline-case-01-b422577-20261122T124553Z",
+  "provider": "proofline",
+  "repo": "Pratik8445/bench-run-proofline",
+  "case_id": "01",
+  "pr_number": 1,
+  "pr_url": "https://github.com/Pratik8445/bench-run-proofline/pull/1",
+  "base_sha": "9b5ac64ab0d3ba414c5edec1e64fcdf8b3b19a1a",
+  "head_sha": "b42257746fa78caad922340082a2a27ed00cdeb8",
+  "context_condition": "code-only",
+  "captured_at": "2026-11-22T12:45:53.934790+00:00",
+  "isolation_status": "isolated",
+  "prior_foreign_reviewers": [],
+  "terminal_outcome": "completed",
+  "findings": [
+    {
+      "source_type": "inline_comment",
+      "source_id": 4657701727,
+      "author": "prooflinedev[bot]",
+      "path": "reports.py",
+      "line": 45,
+      "created_at": "2026-11-22T10:26:28Z",
+      "body": "<!-- proofline:finding-series=01a202ca-dd98-70fe-9060-f302d5ae49ae -->\n**Warning** \u00b7 History skips deliveries tied at a page boundary\n\nThe cursor stores only `scheduled_at`, so the next page excludes deliveries with the same timestamp but a smaller `id`.\n\nOperators never see those deliveries when paging through history.\n\nEncode both `scheduled_at` and `id` in the cursor and resume using the same descending order as the query.\n\n[View finding in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202ca-2a38-711a-ad74-f9565dfa4344/findings/01a202ca-dd9c-760b-997f-5cbfb7c5bf7c)\n\nAlso at:\n- [`migrations/001_initial.sql`](https://github.com/Pratik8445/bench-run-proofline/blob/b42257746fa78caad922340082a2a27ed00cdeb8/migrations/001_initial.sql#L1-L8) lines 1 to 8\n- [`reports.py`](https://github.com/Pratik8445/bench-run-proofline/blob/b42257746fa78caad922340082a2a27ed00cdeb8/reports.py#L23-L29) lines 23 to 29"
+    },
+    {
+      "source_type": "inline_comment",
+      "source_id": 4657701731,
+      "author": "prooflinedev[bot]",
+      "path": "reports.py",
+      "line": 45,
+      "created_at": "2026-11-22T10:26:28Z",
+      "body": "<!-- proofline:finding-series=01a202ca-dd9b-711e-8bcd-8fb47c9e8429 -->\n**Warning** \u00b7 Small history pages now scan the entire deliveries table\n\nThis change orders history by `scheduled_at DESC, id DESC`, which the shipped schema cannot serve from an index.\n\nA first page now visits every row and does sorting work instead of stopping after `limit + 1` primary-key rows.\n\nAdd a migration creating an index on `deliveries(scheduled_at DESC, id DESC)`.\n\n[View finding in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202ca-2a38-711a-ad74-f9565dfa4344/findings/01a202ca-dda4-74fa-8d93-3ca7b37c3688)"
+    }
+  ],
+  "raw": {
+    "reviews": [
+      {
+        "id": 6011715282,
+        "node_id": "PRR_kwDOV3dQfM8AAAABZlN-0g",
+        "user": {
+          "login": "prooflinedev[bot]",
+          "id": 318282779,
+          "node_id": "BOT_kgDOEvicGw",
+          "avatar_url": "https://avatars.githubusercontent.com/in/4636559?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/prooflinedev%5Bbot%5D",
+          "html_url": "https://github.com/apps/prooflinedev",
+          "followers_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "<!-- proofline:review-comment -->\n<!-- proofline:review-publication:d0a23d27-d5e6-406a-b4a1-a4f79040eea3 -->\n**Proofline** has 2 new findings to review.\n\n[View full review in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202ca-2a38-711a-ad74-f9565dfa4344)\n\n<!-- proofline:published-findings -->\n<!-- proofline:published-finding-series=01a202ca-dd98-70fe-9060-f302d5ae49ae -->\n<!-- proofline:published-thread-series=01a202ca-dd98-70fe-9060-f302d5ae49ae -->\n<!-- proofline:published-finding-series=01a202ca-dd9b-711e-8bcd-8fb47c9e8429 -->\n<!-- proofline:published-thread-series=01a202ca-dd9b-711e-8bcd-8fb47c9e8429 -->\n<!-- /proofline:published-findings -->\n<!-- proofline:published-code=01a202ca-dd9c-760b-997f-5cbfb7c5bf7c -->\n<!-- proofline:published-code-thread=01a202ca-dd9c-760b-997f-5cbfb7c5bf7c -->\n<!-- proofline:published-code=01a202ca-dda4-74fa-8d93-3ca7b37c3688 -->\n<!-- proofline:published-code-thread=01a202ca-dda4-74fa-8d93-3ca7b37c3688 -->",
+        "state": "COMMENTED",
+        "html_url": "https://github.com/Pratik8445/bench-run-proofline/pull/1#pullrequestreview-6011715282",
+        "pull_request_url": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/1",
+        "author_association": "NONE",
+        "is_copilot_code_review": false,
+        "copilot_code_review_effort": null,
+        "_links": {
+          "html": {
+            "href": "https://github.com/Pratik8445/bench-run-proofline/pull/1#pullrequestreview-6011715282"
+          },
+          "pull_request": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/1"
+          }
+        },
+        "submitted_at": "2026-11-22T10:26:28Z",
+        "commit_id": "b42257746fa78caad922340082a2a27ed00cdeb8"
+      }
+    ],
+    "inline_comments": [
+      {
+        "url": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/comments/4657701727",
+        "pull_request_review_id": 6011715282,
+        "id": 4657701727,
+        "node_id": "PRRC_kwDOV3dQfM8AAAABFZ7jXw",
+        "diff_hunk": "@@ -42,11 +42,11 @@ def history(db, limit, cursor=None):\n     query = \"SELECT id, report, scheduled_at FROM deliveries\"\n     params = []\n     if cursor is not None:\n-        query += \" WHERE id < ?\"\n+        query += \" WHERE scheduled_at < ?\"",
+        "path": "reports.py",
+        "commit_id": "b42257746fa78caad922340082a2a27ed00cdeb8",
+        "original_commit_id": "b42257746fa78caad922340082a2a27ed00cdeb8",
+        "user": {
+          "login": "prooflinedev[bot]",
+          "id": 318282779,
+          "node_id": "BOT_kgDOEvicGw",
+          "avatar_url": "https://avatars.githubusercontent.com/in/4636559?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/prooflinedev%5Bbot%5D",
+          "html_url": "https://github.com/apps/prooflinedev",
+          "followers_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "<!-- proofline:finding-series=01a202ca-dd98-70fe-9060-f302d5ae49ae -->\n**Warning** \u00b7 History skips deliveries tied at a page boundary\n\nThe cursor stores only `scheduled_at`, so the next page excludes deliveries with the same timestamp but a smaller `id`.\n\nOperators never see those deliveries when paging through history.\n\nEncode both `scheduled_at` and `id` in the cursor and resume using the same descending order as the query.\n\n[View finding in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202ca-2a38-711a-ad74-f9565dfa4344/findings/01a202ca-dd9c-760b-997f-5cbfb7c5bf7c)\n\nAlso at:\n- [`migrations/001_initial.sql`](https://github.com/Pratik8445/bench-run-proofline/blob/b42257746fa78caad922340082a2a27ed00cdeb8/migrations/001_initial.sql#L1-L8) lines 1 to 8\n- [`reports.py`](https://github.com/Pratik8445/bench-run-proofline/blob/b42257746fa78caad922340082a2a27ed00cdeb8/reports.py#L23-L29) lines 23 to 29",
+        "created_at": "2026-11-22T10:26:28Z",
+        "updated_at": "2026-11-22T10:26:28Z",
+        "html_url": "https://github.com/Pratik8445/bench-run-proofline/pull/1#discussion_r4657701727",
+        "pull_request_url": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/1",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/comments/4657701727"
+          },
+          "html": {
+            "href": "https://github.com/Pratik8445/bench-run-proofline/pull/1#discussion_r4657701727"
+          },
+          "pull_request": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/1"
+          }
+        },
+        "reactions": {
+          "url": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/comments/4657701727/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "start_line": 42,
+        "original_start_line": 42,
+        "start_side": "RIGHT",
+        "line": 45,
+        "original_line": 45,
+        "side": "RIGHT",
+        "author_association": "NONE",
+        "original_position": 5,
+        "position": 5,
+        "subject_type": "line",
+        "is_copilot_code_review": false,
+        "copilot_code_review_severity": null,
+        "copilot_code_review_sources": []
+      },
+      {
+        "url": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/comments/4657701731",
+        "pull_request_review_id": 6011715282,
+        "id": 4657701731,
+        "node_id": "PRRC_kwDOV3dQfM8AAAABFZ7jYw",
+        "diff_hunk": "@@ -42,11 +42,11 @@ def history(db, limit, cursor=None):\n     query = \"SELECT id, report, scheduled_at FROM deliveries\"\n     params = []\n     if cursor is not None:\n-        query += \" WHERE id < ?\"\n+        query += \" WHERE scheduled_at < ?\"",
+        "path": "reports.py",
+        "commit_id": "b42257746fa78caad922340082a2a27ed00cdeb8",
+        "original_commit_id": "b42257746fa78caad922340082a2a27ed00cdeb8",
+        "user": {
+          "login": "prooflinedev[bot]",
+          "id": 318282779,
+          "node_id": "BOT_kgDOEvicGw",
+          "avatar_url": "https://avatars.githubusercontent.com/in/4636559?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/prooflinedev%5Bbot%5D",
+          "html_url": "https://github.com/apps/prooflinedev",
+          "followers_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "<!-- proofline:finding-series=01a202ca-dd9b-711e-8bcd-8fb47c9e8429 -->\n**Warning** \u00b7 Small history pages now scan the entire deliveries table\n\nThis change orders history by `scheduled_at DESC, id DESC`, which the shipped schema cannot serve from an index.\n\nA first page now visits every row and does sorting work instead of stopping after `limit + 1` primary-key rows.\n\nAdd a migration creating an index on `deliveries(scheduled_at DESC, id DESC)`.\n\n[View finding in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202ca-2a38-711a-ad74-f9565dfa4344/findings/01a202ca-dda4-74fa-8d93-3ca7b37c3688)",
+        "created_at": "2026-11-22T10:26:28Z",
+        "updated_at": "2026-11-22T10:26:28Z",
+        "html_url": "https://github.com/Pratik8445/bench-run-proofline/pull/1#discussion_r4657701731",
+        "pull_request_url": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/1",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/comments/4657701731"
+          },
+          "html": {
+            "href": "https://github.com/Pratik8445/bench-run-proofline/pull/1#discussion_r4657701731"
+          },
+          "pull_request": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/1"
+          }
+        },
+        "reactions": {
+          "url": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/comments/4657701731/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "start_line": 42,
+        "original_start_line": 42,
+        "start_side": "RIGHT",
+        "line": 45,
+        "original_line": 45,
+        "side": "RIGHT",
+        "author_association": "NONE",
+        "original_position": 5,
+        "position": 5,
+        "subject_type": "line",
+        "is_copilot_code_review": false,
+        "copilot_code_review_severity": null,
+        "copilot_code_review_sources": []
+      }
+    ],
+    "issue_comments": []
+  }
+}

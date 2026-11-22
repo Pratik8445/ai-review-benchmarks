@@ -14,6 +14,7 @@ class CaseGrade:
     provider: str
     case_id: str
     terminal_outcome: str
+    isolation_status: str
     has_defect: bool
     defect_caught: bool = False
     true_positives: int = 0
@@ -24,16 +25,25 @@ class CaseGrade:
 
 
 def match_finding_to_defect(finding: dict[str, Any], expected: dict[str, Any]) -> bool:
-    """Check whether a finding identifies the target file and core defect mechanism."""
+    """Check whether a finding identifies the target file, required terms, and defect mechanism."""
     expected_file = expected["file"]
     finding_path = finding.get("path")
     if finding_path and finding_path != expected_file:
         return False
 
     text = f"{finding.get('path') or ''} {finding.get('body') or ''}".lower()
+    required_all = [kw.lower() for kw in expected.get("required_all", [])]
+    if any(req not in text for req in required_all):
+        return False
+
     keywords = [kw.lower() for kw in expected.get("keywords", [])]
     hits = sum(1 for kw in keywords if kw in text)
     return hits >= 2
+
+
+def stable_finding_key(finding: dict[str, Any]) -> str:
+    """Return a deterministic, order-independent identifier for manual adjudications."""
+    return f"{finding.get('source_type')}:{finding.get('source_id')}"
 
 
 def score_observation(
@@ -45,12 +55,14 @@ def score_observation(
     provider = obs["provider"]
     case_id = obs["case_id"]
     outcome = obs["terminal_outcome"]
+    isolation_status = obs.get("isolation_status", "isolated")
     has_defect = bool(case_spec["has_defect"])
 
     grade = CaseGrade(
         provider=provider,
         case_id=case_id,
         terminal_outcome=outcome,
+        isolation_status=isolation_status,
         has_defect=has_defect,
     )
 
@@ -62,9 +74,10 @@ def score_observation(
     expected = case_spec.get("expected_defect")
 
     for idx, finding in enumerate(obs.get("findings", [])):
-        if str(idx) in case_override:
-            label = case_override[str(idx)]["label"]
-            reason = case_override[str(idx)]["reason"]
+        fkey = stable_finding_key(finding)
+        if fkey in case_override:
+            label = case_override[fkey]["label"]
+            reason = case_override[fkey]["reason"]
         elif has_defect and expected and match_finding_to_defect(finding, expected):
             label = "true_positive"
             reason = f"Matched ground-truth defect in {expected['file']}"
@@ -91,6 +104,7 @@ def score_observation(
         grade.finding_notes.append(
             {
                 "finding_index": idx,
+                "finding_key": fkey,
                 "source_id": finding.get("source_id"),
                 "path": finding.get("path"),
                 "line": finding.get("line"),
@@ -125,8 +139,8 @@ def build_summary_markdown(
         completed_count = 0
         for c in case_ids:
             g = by_pair.get((p, c))
-            if g is None or g.terminal_outcome == "unattempted":
-                cells.append("UNATTEMPTED")
+            if g is None or g.terminal_outcome in ("unattempted", "requested_no_response"):
+                cells.append(g.terminal_outcome.upper() if g else "UNATTEMPTED")
             elif g.terminal_outcome != "completed":
                 cells.append(g.terminal_outcome.upper())
             else:
@@ -137,6 +151,10 @@ def build_summary_markdown(
                     status = "QUIET (TN)" if g.false_positives == 0 else f"NOISE ({g.false_positives} FP)"
                 if g.false_positives > 0 and g.has_defect:
                     status += f" + {g.false_positives} FP"
+                if g.valid_extra_warnings > 0:
+                    status += f" (+{g.valid_extra_warnings} valid_extra)"
+                if g.isolation_status != "isolated":
+                    status += " [non-blind]"
                 cells.append(status)
         lines.append(f"| **{p}** | " + " | ".join(cells) + f" | {completed_count}/{len(case_ids)} |")
 
@@ -145,19 +163,21 @@ def build_summary_markdown(
             "",
             "## 2. Accuracy & Denominator Summary (Completed Reviews Only)",
             "",
-            "| Provider | Completed Pairs | Defects Caught (Recall) | Finding Precision | Clean Control Pass Rate |",
-            "| --- | --- | --- | --- | --- |",
+            "| Provider | Completed Pairs | Strictly Isolated Pairs | Defects Caught (Recall) | Finding Precision (Strict) | Valid Extra Operational Warnings | Clean Control Pass Rate |",
+            "| --- | --- | --- | --- | --- | --- | --- |",
         ]
     )
 
     for p in providers:
         p_grades = [by_pair[(p, c)] for c in case_ids if (p, c) in by_pair and by_pair[(p, c)].terminal_outcome == "completed"]
+        isolated_count = sum(1 for g in p_grades if g.isolation_status == "isolated")
         defect_cases = [g for g in p_grades if g.has_defect]
         clean_cases = [g for g in p_grades if not g.has_defect]
 
         caught = sum(1 for g in defect_cases if g.defect_caught)
         tp = sum(g.true_positives for g in p_grades)
         fp = sum(g.false_positives for g in p_grades)
+        ve = sum(g.valid_extra_warnings for g in p_grades)
         clean_pass = sum(1 for g in clean_cases if g.false_positives == 0)
 
         recall_str = f"{caught}/{len(defect_cases)} ({(100 * caught / len(defect_cases)):.1f}%)" if defect_cases else "N/A"
@@ -165,7 +185,10 @@ def build_summary_markdown(
         prec_str = f"{tp}/{prec_denom} ({(100 * tp / prec_denom):.1f}%)" if prec_denom else "N/A (0 findings)"
         clean_str = f"{clean_pass}/{len(clean_cases)}" if clean_cases else "N/A"
 
-        lines.append(f"| **{p}** | {len(p_grades)}/{len(case_ids)} | {recall_str} | {prec_str} | {clean_str} |")
+        lines.append(
+            f"| **{p}** | {len(p_grades)}/{len(case_ids)} | {isolated_count}/{len(p_grades)} | "
+            f"{recall_str} | {prec_str} | {ve} | {clean_str} |"
+        )
 
     return "\n".join(lines) + "\n"
 

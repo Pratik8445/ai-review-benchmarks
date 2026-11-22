@@ -1,5 +1,5 @@
 {
-  "run_id": "copilot-case-01-b422577",
+  "run_id": "copilot-case-01-b422577-20261122T124652Z",
   "provider": "copilot",
   "repo": "Pratik8445/bench-run-copilot",
   "case_id": "01",
@@ -8,7 +8,9 @@
   "base_sha": "9b5ac64ab0d3ba414c5edec1e64fcdf8b3b19a1a",
   "head_sha": "b42257746fa78caad922340082a2a27ed00cdeb8",
   "context_condition": "code-only",
-  "captured_at": "2026-11-22T12:35:44.462033+00:00",
+  "captured_at": "2026-11-22T12:46:52.822689+00:00",
+  "isolation_status": "isolated",
+  "prior_foreign_reviewers": [],
   "terminal_outcome": "unattempted",
   "findings": [],
   "raw": {

@@ -1,5 +1,5 @@
 {
-  "run_id": "coderabbit-case-04-420baea",
+  "run_id": "coderabbit-case-04-420baea-20261122T124621Z",
   "provider": "coderabbit",
   "repo": "Pratik8445/bench-run-coderabbit",
   "case_id": "04",
@@ -8,7 +8,11 @@
   "base_sha": "9b5ac64ab0d3ba414c5edec1e64fcdf8b3b19a1a",
   "head_sha": "420baea889887b127f1c87d99f728e40f7664996",
   "context_condition": "code+snapshot",
-  "captured_at": "2026-11-22T12:35:12.171797+00:00",
+  "captured_at": "2026-11-22T12:46:21.309608+00:00",
+  "isolation_status": "non_blind_prior_bot_visible",
+  "prior_foreign_reviewers": [
+    "prooflinedev[bot]"
+  ],
   "terminal_outcome": "completed",
   "findings": [
     {

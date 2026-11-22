@@ -1,5 +1,5 @@
 {
-  "run_id": "greptile-case-03-6cca1e9",
+  "run_id": "greptile-case-03-6cca1e9-20261122T124638Z",
   "provider": "greptile",
   "repo": "Pratik8445/bench-run-greptile",
   "case_id": "03",
@@ -8,8 +8,12 @@
   "base_sha": "9b5ac64ab0d3ba414c5edec1e64fcdf8b3b19a1a",
   "head_sha": "6cca1e909a083c5a7f3fefc60ba637c2c84c411c",
   "context_condition": "code-only",
-  "captured_at": "2026-11-22T12:35:29.555151+00:00",
-  "terminal_outcome": "unattempted",
+  "captured_at": "2026-11-22T12:46:38.792288+00:00",
+  "isolation_status": "non_blind_prior_bot_visible",
+  "prior_foreign_reviewers": [
+    "prooflinedev[bot]"
+  ],
+  "terminal_outcome": "requested_no_response",
   "findings": [],
   "raw": {
     "reviews": [

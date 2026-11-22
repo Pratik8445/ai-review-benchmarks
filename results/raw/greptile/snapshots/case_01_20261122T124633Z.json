@@ -1,0 +1,258 @@
+{
+  "run_id": "greptile-case-01-b422577-20261122T124633Z",
+  "provider": "greptile",
+  "repo": "Pratik8445/bench-run-greptile",
+  "case_id": "01",
+  "pr_number": 1,
+  "pr_url": "https://github.com/Pratik8445/bench-run-greptile/pull/1",
+  "base_sha": "9b5ac64ab0d3ba414c5edec1e64fcdf8b3b19a1a",
+  "head_sha": "b42257746fa78caad922340082a2a27ed00cdeb8",
+  "context_condition": "code-only",
+  "captured_at": "2026-11-22T12:46:33.951316+00:00",
+  "isolation_status": "non_blind_prior_bot_visible",
+  "prior_foreign_reviewers": [
+    "prooflinedev[bot]"
+  ],
+  "terminal_outcome": "requested_no_response",
+  "findings": [],
+  "raw": {
+    "reviews": [
+      {
+        "id": 6011731094,
+        "node_id": "PRR_kwDOV3dQ688AAAABZlO8lg",
+        "user": {
+          "login": "prooflinedev[bot]",
+          "id": 318282779,
+          "node_id": "BOT_kgDOEvicGw",
+          "avatar_url": "https://avatars.githubusercontent.com/in/4636559?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/prooflinedev%5Bbot%5D",
+          "html_url": "https://github.com/apps/prooflinedev",
+          "followers_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "<!-- proofline:review-comment -->\n<!-- proofline:review-publication:bd5c656e-7499-4ebd-8c2f-adf4d731c396 -->\n**Proofline** has 2 new findings to review.\n\n[View full review in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202cb-e36b-7316-8580-bd034d371763)\n\n<!-- proofline:published-findings -->\n<!-- proofline:published-finding-series=01a202cc-e750-7202-a418-731effe8ebbf -->\n<!-- proofline:published-thread-series=01a202cc-e750-7202-a418-731effe8ebbf -->\n<!-- proofline:published-finding-series=01a202cc-e753-776d-970f-ceb32d7182ad -->\n<!-- proofline:published-thread-series=01a202cc-e753-776d-970f-ceb32d7182ad -->\n<!-- /proofline:published-findings -->\n<!-- proofline:published-code=01a202cc-e753-776d-970f-ceb4303052f1 -->\n<!-- proofline:published-code-thread=01a202cc-e753-776d-970f-ceb4303052f1 -->\n<!-- proofline:published-code=01a202cc-e75c-7351-903e-87a99ac3a386 -->\n<!-- proofline:published-code-thread=01a202cc-e75c-7351-903e-87a99ac3a386 -->",
+        "state": "COMMENTED",
+        "html_url": "https://github.com/Pratik8445/bench-run-greptile/pull/1#pullrequestreview-6011731094",
+        "pull_request_url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/1",
+        "author_association": "NONE",
+        "is_copilot_code_review": false,
+        "copilot_code_review_effort": null,
+        "_links": {
+          "html": {
+            "href": "https://github.com/Pratik8445/bench-run-greptile/pull/1#pullrequestreview-6011731094"
+          },
+          "pull_request": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/1"
+          }
+        },
+        "submitted_at": "2026-11-22T10:28:55Z",
+        "commit_id": "b42257746fa78caad922340082a2a27ed00cdeb8"
+      }
+    ],
+    "inline_comments": [
+      {
+        "url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/comments/4657708833",
+        "pull_request_review_id": 6011731094,
+        "id": 4657708833,
+        "node_id": "PRRC_kwDOV3dQ688AAAABFZ7_IQ",
+        "diff_hunk": "@@ -42,11 +42,11 @@ def history(db, limit, cursor=None):\n     query = \"SELECT id, report, scheduled_at FROM deliveries\"\n     params = []\n     if cursor is not None:\n-        query += \" WHERE id < ?\"\n+        query += \" WHERE scheduled_at < ?\"\n         params.append(cursor)\n-    query += \" ORDER BY id DESC LIMIT ?\"\n+    query += \" ORDER BY scheduled_at DESC, id DESC LIMIT ?\"",
+        "path": "reports.py",
+        "commit_id": "b42257746fa78caad922340082a2a27ed00cdeb8",
+        "original_commit_id": "b42257746fa78caad922340082a2a27ed00cdeb8",
+        "user": {
+          "login": "prooflinedev[bot]",
+          "id": 318282779,
+          "node_id": "BOT_kgDOEvicGw",
+          "avatar_url": "https://avatars.githubusercontent.com/in/4636559?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/prooflinedev%5Bbot%5D",
+          "html_url": "https://github.com/apps/prooflinedev",
+          "followers_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "<!-- proofline:finding-series=01a202cc-e750-7202-a418-731effe8ebbf -->\n**Warning** \u00b7 History skips deliveries tied at a page boundary\n\nHistory sorts by `scheduled_at` and `id`, but its cursor filters only for earlier timestamps.\n\nWhen a page ends partway through a shared timestamp, subsequent pages omit the remaining deliveries at that timestamp.\n\nEncode both `scheduled_at` and `id` in the cursor and resume with a strict lexicographic comparison on that pair.\n\n[View finding in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202cb-e36b-7316-8580-bd034d371763/findings/01a202cc-e753-776d-970f-ceb4303052f1)",
+        "created_at": "2026-11-22T10:28:55Z",
+        "updated_at": "2026-11-22T10:28:55Z",
+        "html_url": "https://github.com/Pratik8445/bench-run-greptile/pull/1#discussion_r4657708833",
+        "pull_request_url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/1",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/comments/4657708833"
+          },
+          "html": {
+            "href": "https://github.com/Pratik8445/bench-run-greptile/pull/1#discussion_r4657708833"
+          },
+          "pull_request": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/1"
+          }
+        },
+        "reactions": {
+          "url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/comments/4657708833/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "start_line": 45,
+        "original_start_line": 45,
+        "start_side": "RIGHT",
+        "line": 47,
+        "original_line": 47,
+        "side": "RIGHT",
+        "author_association": "NONE",
+        "original_position": 8,
+        "position": 8,
+        "subject_type": "line",
+        "is_copilot_code_review": false,
+        "copilot_code_review_severity": null,
+        "copilot_code_review_sources": []
+      },
+      {
+        "url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/comments/4657708835",
+        "pull_request_review_id": 6011731094,
+        "id": 4657708835,
+        "node_id": "PRRC_kwDOV3dQ688AAAABFZ7_Iw",
+        "diff_hunk": "@@ -42,11 +42,11 @@ def history(db, limit, cursor=None):\n     query = \"SELECT id, report, scheduled_at FROM deliveries\"\n     params = []\n     if cursor is not None:\n-        query += \" WHERE id < ?\"\n+        query += \" WHERE scheduled_at < ?\"",
+        "path": "reports.py",
+        "commit_id": "b42257746fa78caad922340082a2a27ed00cdeb8",
+        "original_commit_id": "b42257746fa78caad922340082a2a27ed00cdeb8",
+        "user": {
+          "login": "prooflinedev[bot]",
+          "id": 318282779,
+          "node_id": "BOT_kgDOEvicGw",
+          "avatar_url": "https://avatars.githubusercontent.com/in/4636559?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/prooflinedev%5Bbot%5D",
+          "html_url": "https://github.com/apps/prooflinedev",
+          "followers_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "<!-- proofline:finding-series=01a202cc-e753-776d-970f-ceb32d7182ad -->\n**Warning** \u00b7 History emits fractional cursors the console rejects\n\nThis change returns `scheduled_at` as the cursor. SQLite can store a fractional value there, but `--cursor` only accepts integers.\n\nIf a fractional timestamp ends a non-final page, the console rejects the emitted cursor and cannot resume from it.\n\nUse a cursor format that round-trips fractional timestamps without rounding.\n\n<details>\n<summary>Details</summary>\n\nThe only repository caller of `schedule` parses its timestamp as an integer, so no caller supplying a fractional timestamp was found. The scheduling function itself binds the value unchanged, and the schema allows SQLite to retain it as a REAL. Before this change, the cursor came from the integer primary key.\n\n</details>\n\n[View finding in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202cb-e36b-7316-8580-bd034d371763/findings/01a202cc-e75c-7351-903e-87a99ac3a386)",
+        "created_at": "2026-11-22T10:28:55Z",
+        "updated_at": "2026-11-22T10:28:55Z",
+        "html_url": "https://github.com/Pratik8445/bench-run-greptile/pull/1#discussion_r4657708835",
+        "pull_request_url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/1",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/comments/4657708835"
+          },
+          "html": {
+            "href": "https://github.com/Pratik8445/bench-run-greptile/pull/1#discussion_r4657708835"
+          },
+          "pull_request": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/1"
+          }
+        },
+        "reactions": {
+          "url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/pulls/comments/4657708835/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "start_line": 42,
+        "original_start_line": 42,
+        "start_side": "RIGHT",
+        "line": 45,
+        "original_line": 45,
+        "side": "RIGHT",
+        "author_association": "NONE",
+        "original_position": 5,
+        "position": 5,
+        "subject_type": "line",
+        "is_copilot_code_review": false,
+        "copilot_code_review_severity": null,
+        "copilot_code_review_sources": []
+      }
+    ],
+    "issue_comments": [
+      {
+        "url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/issues/comments/7078589301",
+        "html_url": "https://github.com/Pratik8445/bench-run-greptile/pull/1#issuecomment-7078589301",
+        "issue_url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/issues/1",
+        "id": 7078589301,
+        "node_id": "IC_kwDOV3dQ688AAAABpeqzdQ",
+        "user": {
+          "login": "Pratik8445",
+          "id": 172166261,
+          "node_id": "U_kgDOCkMMdQ",
+          "avatar_url": "https://avatars.githubusercontent.com/u/172166261?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/Pratik8445",
+          "html_url": "https://github.com/Pratik8445",
+          "followers_url": "https://api.github.com/users/Pratik8445/followers",
+          "following_url": "https://api.github.com/users/Pratik8445/following{/other_user}",
+          "gists_url": "https://api.github.com/users/Pratik8445/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/Pratik8445/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/Pratik8445/subscriptions",
+          "organizations_url": "https://api.github.com/users/Pratik8445/orgs",
+          "repos_url": "https://api.github.com/users/Pratik8445/repos",
+          "events_url": "https://api.github.com/users/Pratik8445/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/Pratik8445/received_events",
+          "type": "User",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "created_at": "2026-11-22T11:39:51Z",
+        "updated_at": "2026-11-22T11:39:51Z",
+        "body": "@greptileai",
+        "author_association": "OWNER",
+        "reactions": {
+          "url": "https://api.github.com/repos/Pratik8445/bench-run-greptile/issues/comments/7078589301/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "performed_via_github_app": null,
+        "minimized": null
+      }
+    ]
+  }
+}

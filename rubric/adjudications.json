@@ -1,14 +1,20 @@
 {
   "proofline:01": {
-    "1": {
+    "inline_comment:4657701731": {
       "label": "valid_extra",
       "reason": "Valid performance warning: ordering by (scheduled_at DESC, id DESC) without a composite index scans the full deliveries table."
     }
   },
   "proofline:02": {
-    "1": {
+    "inline_comment:4657702812": {
       "label": "valid_extra",
       "reason": "Valid concurrency warning: streaming directly from an open SQLite cursor holds a shared read lock while blocking on stdout I/O."
+    }
+  },
+  "proofline:06": {
+    "inline_comment:4657704766": {
+      "label": "false_positive",
+      "reason": "Flagged quickstart worker instead of identifying site elm's subscribed_queues=['reports'] mismatch in evidence.md."
     }
   }
 }

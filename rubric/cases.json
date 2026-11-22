@@ -66,10 +66,7 @@
       "title": "Use the new delivery queue",
       "has_defect": true,
       "requires_deployment_evidence": true,
-      "affected_site": "elm",
-      "safe_site": "cedar",
-      "expected_defect": {
-        "file": "reports.py",
+      "affected_site": "elm", "safe_site": "cedar", "expected_defect": { "file": "reports.py", "required_all": ["elm"],
         "summary": "Routing new deliveries to 'report-dispatch' strands 8 due jobs on site 'elm' because elm workers only subscribe to ['reports'].",
         "keywords": ["elm", "report-dispatch", "subscribed_queues", "reports", "unconsumed", "stranded"]
       }
@@ -90,3 +87,4 @@
     }
   ]
 }
+
