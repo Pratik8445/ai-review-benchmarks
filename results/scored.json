@@ -1,0 +1,640 @@
+[
+  {
+    "provider": "proofline",
+    "case_id": "01",
+    "terminal_outcome": "completed",
+    "isolation_status": "isolated",
+    "has_defect": true,
+    "defect_caught": true,
+    "true_positives": 1,
+    "false_positives": 0,
+    "valid_extra_warnings": 1,
+    "ambiguous_findings": 0,
+    "finding_notes": [
+      {
+        "finding_index": 0,
+        "finding_key": "inline_comment:4657701727",
+        "source_id": 4657701727,
+        "path": "reports.py",
+        "line": 45,
+        "label": "true_positive",
+        "reason": "Matched ground-truth defect in reports.py",
+        "excerpt": "<!-- proofline:finding-series=01a202ca-dd98-70fe-9060-f302d5ae49ae --> **Warning** \u00b7 History skips deliveries tied at a page boundary  The cursor stores only `scheduled_at`, so the"
+      },
+      {
+        "finding_index": 1,
+        "finding_key": "inline_comment:4657701731",
+        "source_id": 4657701731,
+        "path": "reports.py",
+        "line": 45,
+        "label": "valid_extra",
+        "reason": "Valid performance warning: ordering by (scheduled_at DESC, id DESC) without a composite index scans the full deliveries table.",
+        "excerpt": "<!-- proofline:finding-series=01a202ca-dd9b-711e-8bcd-8fb47c9e8429 --> **Warning** \u00b7 Small history pages now scan the entire deliveries table  This change orders history by `schedu"
+      }
+    ]
+  },
+  {
+    "provider": "proofline",
+    "case_id": "02",
+    "terminal_outcome": "completed",
+    "isolation_status": "isolated",
+    "has_defect": true,
+    "defect_caught": true,
+    "true_positives": 1,
+    "false_positives": 0,
+    "valid_extra_warnings": 1,
+    "ambiguous_findings": 0,
+    "finding_notes": [
+      {
+        "finding_index": 0,
+        "finding_key": "inline_comment:4657702811",
+        "source_id": 4657702811,
+        "path": "reports.py",
+        "line": 52,
+        "label": "true_positive",
+        "reason": "Matched ground-truth defect in reports.py",
+        "excerpt": "<!-- proofline:finding-series=01a202cb-23c8-7508-9b63-96f9215a60cc --> **Serious** \u00b7 Report names with commas or line breaks corrupt CSV exports  `write_export` joins raw field val"
+      },
+      {
+        "finding_index": 1,
+        "finding_key": "inline_comment:4657702812",
+        "source_id": 4657702812,
+        "path": "reports.py",
+        "line": 55,
+        "label": "valid_extra",
+        "reason": "Valid concurrency warning: streaming directly from an open SQLite cursor holds a shared read lock while blocking on stdout I/O.",
+        "excerpt": "<!-- proofline:finding-series=01a202cb-23c3-758a-939b-393a58a393bc --> **Warning** \u00b7 Blocked export output can make scheduling fail  This change writes export rows to stdout while "
+      }
+    ]
+  },
+  {
+    "provider": "proofline",
+    "case_id": "03",
+    "terminal_outcome": "completed",
+    "isolation_status": "isolated",
+    "has_defect": true,
+    "defect_caught": true,
+    "true_positives": 1,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": [
+      {
+        "finding_index": 0,
+        "finding_key": "inline_comment:4657701962",
+        "source_id": 4657701962,
+        "path": "reports.py",
+        "line": 76,
+        "label": "true_positive",
+        "reason": "Matched ground-truth defect in reports.py",
+        "excerpt": "<!-- proofline:finding-series=01a202ca-f5ad-7679-bf0d-a52776f4aa8d --> **Warning** \u00b7 Worker skips the final batch of fewer than 20 due jobs  The loop in `deliver_due` visits only f"
+      }
+    ]
+  },
+  {
+    "provider": "proofline",
+    "case_id": "04",
+    "terminal_outcome": "completed",
+    "isolation_status": "isolated",
+    "has_defect": true,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 2,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": [
+      {
+        "finding_index": 0,
+        "finding_key": "inline_comment:4657706957",
+        "source_id": 4657706957,
+        "path": "migrations/002_retire_format.sql",
+        "line": 1,
+        "label": "false_positive",
+        "reason": "Did not match ground-truth defect criteria",
+        "excerpt": "<!-- proofline:finding-series=01a202cc-2f54-76e7-9ab9-073e404d3f78 --> **Serious** \u00b7 Concurrent startup can abort a console command during migration 002  Two invocations can read s"
+      },
+      {
+        "finding_index": 1,
+        "finding_key": "inline_comment:4657706958",
+        "source_id": 4657706958,
+        "path": "migrations/002_retire_format.sql",
+        "line": 1,
+        "label": "false_positive",
+        "reason": "Did not match ground-truth defect criteria",
+        "excerpt": "<!-- proofline:finding-series=01a202cc-2f56-7619-bab4-e0434daa424f --> **Warning** \u00b7 First history page waits for a full deliveries table rewrite  On a version-1 database, `history"
+      }
+    ]
+  },
+  {
+    "provider": "proofline",
+    "case_id": "05",
+    "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
+    "has_defect": true,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "proofline",
+    "case_id": "06",
+    "terminal_outcome": "completed",
+    "isolation_status": "isolated",
+    "has_defect": true,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 1,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": [
+      {
+        "finding_index": 0,
+        "finding_key": "inline_comment:4657704766",
+        "source_id": 4657704766,
+        "path": "reports.py",
+        "line": 9,
+        "label": "false_positive",
+        "reason": "Flagged quickstart worker instead of identifying site elm's subscribed_queues=['reports'] mismatch in evidence.md.",
+        "excerpt": "<!-- proofline:finding-series=01a202cb-89d6-77ac-b08b-c7225b25c96c --> **Warning** \u00b7 Quickstart worker leaves the scheduled report pending  This change schedules jobs on `report-di"
+      }
+    ]
+  },
+  {
+    "provider": "proofline",
+    "case_id": "07",
+    "terminal_outcome": "completed",
+    "isolation_status": "isolated",
+    "has_defect": false,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 2,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": [
+      {
+        "finding_index": 0,
+        "finding_key": "inline_comment:4657705167",
+        "source_id": 4657705167,
+        "path": "migrations/002_pending_by_queue.sql",
+        "line": 2,
+        "label": "false_positive",
+        "reason": "Flagged an issue on a verified clean control PR",
+        "excerpt": "<!-- proofline:finding-series=01a202cc-13e9-71f9-9a26-d4fd26f725f8 --> **Warning** \u00b7 Concurrent upgrades can abort a console command before dispatch  Two invocations can both read "
+      },
+      {
+        "finding_index": 1,
+        "finding_key": "inline_comment:4657705168",
+        "source_id": 4657705168,
+        "path": "migrations/002_pending_by_queue.sql",
+        "line": 2,
+        "label": "false_positive",
+        "reason": "Flagged an issue on a verified clean control PR",
+        "excerpt": "<!-- proofline:finding-series=01a202cc-13ea-72cd-a349-211abff056b7 --> **Warning** \u00b7 First history page after upgrade waits for a full table scan  On a version-1 database, `history"
+      }
+    ]
+  },
+  {
+    "provider": "proofline",
+    "case_id": "08",
+    "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
+    "has_defect": false,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "coderabbit",
+    "case_id": "01",
+    "terminal_outcome": "completed",
+    "isolation_status": "non_blind_prior_bot_visible",
+    "has_defect": true,
+    "defect_caught": true,
+    "true_positives": 1,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": [
+      {
+        "finding_index": 0,
+        "finding_key": "inline_comment:4657934502",
+        "source_id": 4657934502,
+        "path": "reports.py",
+        "line": 45,
+        "label": "true_positive",
+        "reason": "Matched ground-truth defect in reports.py",
+        "excerpt": "<!-- coderabbit-ai-generated:v1 -->  **<picture><img src=\"https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/major-16.svg\" width=\"16\" height=\"16\" align"
+      },
+      {
+        "finding_index": 1,
+        "finding_key": "review_summary:6012023621",
+        "source_id": 6012023621,
+        "path": null,
+        "line": null,
+        "label": "duplicate_tp",
+        "reason": "Matched ground-truth defect in reports.py",
+        "excerpt": "<!-- coderabbit-ai-generated:v1 -->  **Actionable comments posted: 1**  ---  <!-- autofix_checkbox_start --> - [ ] <!-- {\"checkboxId\":\"4b0d0e0a-96d7-4f10-b296-3a18ea78f0b9\"} --> Fi"
+      }
+    ]
+  },
+  {
+    "provider": "coderabbit",
+    "case_id": "02",
+    "terminal_outcome": "completed",
+    "isolation_status": "non_blind_prior_bot_visible",
+    "has_defect": true,
+    "defect_caught": true,
+    "true_positives": 1,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": [
+      {
+        "finding_index": 0,
+        "finding_key": "inline_comment:4657935745",
+        "source_id": 4657935745,
+        "path": "reports.py",
+        "line": 56,
+        "label": "true_positive",
+        "reason": "Matched ground-truth defect in reports.py",
+        "excerpt": "<!-- coderabbit-ai-generated:v1 -->  **<picture><img src=\"https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/major-16.svg\" width=\"16\" height=\"16\" align"
+      },
+      {
+        "finding_index": 1,
+        "finding_key": "review_summary:6012025009",
+        "source_id": 6012025009,
+        "path": null,
+        "line": null,
+        "label": "duplicate_tp",
+        "reason": "Matched ground-truth defect in reports.py",
+        "excerpt": "<!-- coderabbit-ai-generated:v1 -->  **Actionable comments posted: 2**  ---  <!-- autofix_checkbox_start --> - [ ] <!-- {\"checkboxId\":\"4b0d0e0a-96d7-4f10-b296-3a18ea78f0b9\"} --> Fi"
+      }
+    ]
+  },
+  {
+    "provider": "coderabbit",
+    "case_id": "03",
+    "terminal_outcome": "completed",
+    "isolation_status": "non_blind_prior_bot_visible",
+    "has_defect": true,
+    "defect_caught": true,
+    "true_positives": 1,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": [
+      {
+        "finding_index": 0,
+        "finding_key": "inline_comment:4657933973",
+        "source_id": 4657933973,
+        "path": "reports.py",
+        "line": 78,
+        "label": "true_positive",
+        "reason": "Matched ground-truth defect in reports.py",
+        "excerpt": "<!-- coderabbit-ai-generated:v1 -->  **<picture><img src=\"https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/major-16.svg\" width=\"16\" height=\"16\" align"
+      },
+      {
+        "finding_index": 1,
+        "finding_key": "review_summary:6012023010",
+        "source_id": 6012023010,
+        "path": null,
+        "line": null,
+        "label": "duplicate_tp",
+        "reason": "Matched ground-truth defect in reports.py",
+        "excerpt": "<!-- coderabbit-ai-generated:v1 -->  **Actionable comments posted: 1**  ---  <!-- autofix_checkbox_start --> - [ ] <!-- {\"checkboxId\":\"4b0d0e0a-96d7-4f10-b296-3a18ea78f0b9\"} --> Fi"
+      }
+    ]
+  },
+  {
+    "provider": "coderabbit",
+    "case_id": "04",
+    "terminal_outcome": "completed",
+    "isolation_status": "non_blind_prior_bot_visible",
+    "has_defect": true,
+    "defect_caught": true,
+    "true_positives": 1,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": [
+      {
+        "finding_index": 0,
+        "finding_key": "inline_comment:4657933824",
+        "source_id": 4657933824,
+        "path": "migrations/002_retire_format.sql",
+        "line": 1,
+        "label": "true_positive",
+        "reason": "Matched ground-truth defect in migrations/002_retire_format.sql",
+        "excerpt": "<!-- coderabbit-ai-generated:v1 -->  **<picture><img src=\"https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/major-16.svg\" width=\"16\" height=\"16\" align"
+      },
+      {
+        "finding_index": 1,
+        "finding_key": "review_summary:6012022836",
+        "source_id": 6012022836,
+        "path": null,
+        "line": null,
+        "label": "duplicate_tp",
+        "reason": "Matched ground-truth defect in migrations/002_retire_format.sql",
+        "excerpt": "<!-- coderabbit-ai-generated:v1 -->  **Actionable comments posted: 1**  ---  <!-- autofix_checkbox_start --> - [ ] <!-- {\"checkboxId\":\"4b0d0e0a-96d7-4f10-b296-3a18ea78f0b9\"} --> Fi"
+      }
+    ]
+  },
+  {
+    "provider": "coderabbit",
+    "case_id": "05",
+    "terminal_outcome": "completed",
+    "isolation_status": "isolated",
+    "has_defect": true,
+    "defect_caught": true,
+    "true_positives": 1,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": [
+      {
+        "finding_index": 0,
+        "finding_key": "review_summary:6012025980",
+        "source_id": 6012025980,
+        "path": null,
+        "line": null,
+        "label": "true_positive",
+        "reason": "Matched ground-truth defect in reports.py",
+        "excerpt": "<!-- coderabbit-ai-generated:v1 -->    <details> <summary><picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"https://storage.googleapis.com/coderabbit_public_assets/revi"
+      }
+    ]
+  },
+  {
+    "provider": "coderabbit",
+    "case_id": "06",
+    "terminal_outcome": "completed",
+    "isolation_status": "non_blind_prior_bot_visible",
+    "has_defect": true,
+    "defect_caught": true,
+    "true_positives": 1,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": [
+      {
+        "finding_index": 0,
+        "finding_key": "inline_comment:4657935755",
+        "source_id": 4657935755,
+        "path": "reports.py",
+        "line": 9,
+        "label": "true_positive",
+        "reason": "Matched ground-truth defect in reports.py",
+        "excerpt": "<!-- coderabbit-ai-generated:v1 -->  **<picture><img src=\"https://storage.googleapis.com/coderabbit_public_assets/review-comment-icons-v1/major-16.svg\" width=\"16\" height=\"16\" align"
+      },
+      {
+        "finding_index": 1,
+        "finding_key": "review_summary:6012025018",
+        "source_id": 6012025018,
+        "path": null,
+        "line": null,
+        "label": "duplicate_tp",
+        "reason": "Matched ground-truth defect in reports.py",
+        "excerpt": "<!-- coderabbit-ai-generated:v1 -->  **Actionable comments posted: 1**  > [!CAUTION] > Some comments are outside the diff and can\u2019t be posted inline due to GitHub limitations. >  >"
+      }
+    ]
+  },
+  {
+    "provider": "coderabbit",
+    "case_id": "07",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "non_blind_prior_bot_visible",
+    "has_defect": false,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "coderabbit",
+    "case_id": "08",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "isolated",
+    "has_defect": false,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "greptile",
+    "case_id": "01",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "non_blind_prior_bot_visible",
+    "has_defect": true,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "greptile",
+    "case_id": "02",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "non_blind_prior_bot_visible",
+    "has_defect": true,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "greptile",
+    "case_id": "03",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "non_blind_prior_bot_visible",
+    "has_defect": true,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "greptile",
+    "case_id": "04",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "non_blind_prior_bot_visible",
+    "has_defect": true,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "greptile",
+    "case_id": "05",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "isolated",
+    "has_defect": true,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "greptile",
+    "case_id": "06",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "non_blind_prior_bot_visible",
+    "has_defect": true,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "greptile",
+    "case_id": "07",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "non_blind_prior_bot_visible",
+    "has_defect": false,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "greptile",
+    "case_id": "08",
+    "terminal_outcome": "requested_no_response",
+    "isolation_status": "isolated",
+    "has_defect": false,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "copilot",
+    "case_id": "01",
+    "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
+    "has_defect": true,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "copilot",
+    "case_id": "02",
+    "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
+    "has_defect": true,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "copilot",
+    "case_id": "03",
+    "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
+    "has_defect": true,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "copilot",
+    "case_id": "04",
+    "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
+    "has_defect": true,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "copilot",
+    "case_id": "05",
+    "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
+    "has_defect": true,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "copilot",
+    "case_id": "06",
+    "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
+    "has_defect": true,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "copilot",
+    "case_id": "07",
+    "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
+    "has_defect": false,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  },
+  {
+    "provider": "copilot",
+    "case_id": "08",
+    "terminal_outcome": "unattempted",
+    "isolation_status": "isolated",
+    "has_defect": false,
+    "defect_caught": false,
+    "true_positives": 0,
+    "false_positives": 0,
+    "valid_extra_warnings": 0,
+    "ambiguous_findings": 0,
+    "finding_notes": []
+  }
+]

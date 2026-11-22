@@ -1,0 +1,228 @@
+{
+  "run_id": "proofline-case-02-9d551b8-20261122T124556Z",
+  "provider": "proofline",
+  "repo": "Pratik8445/bench-run-proofline",
+  "case_id": "02",
+  "pr_number": 2,
+  "pr_url": "https://github.com/Pratik8445/bench-run-proofline/pull/2",
+  "base_sha": "9b5ac64ab0d3ba414c5edec1e64fcdf8b3b19a1a",
+  "head_sha": "9d551b83dc3a9b0c30868859ea97feef934e7b9b",
+  "context_condition": "code-only",
+  "captured_at": "2026-11-22T12:45:56.325702+00:00",
+  "isolation_status": "isolated",
+  "prior_foreign_reviewers": [],
+  "terminal_outcome": "completed",
+  "findings": [
+    {
+      "source_type": "inline_comment",
+      "source_id": 4657702811,
+      "author": "prooflinedev[bot]",
+      "path": "reports.py",
+      "line": 52,
+      "created_at": "2026-11-22T10:26:52Z",
+      "body": "<!-- proofline:finding-series=01a202cb-23c8-7508-9b63-96f9215a60cc -->\n**Serious** \u00b7 Report names with commas or line breaks corrupt CSV exports\n\n`write_export` joins raw field values without CSV quoting.\n\nA report name containing a comma or line break can turn one delivery into extra columns or records.\n\nKeep streaming the query results, but write each row with `csv.writer.writerow`.\n\n[View finding in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202ca-41c5-70b7-a064-c299489b96d6/findings/01a202cb-23d1-73c9-9f12-69115957a0e1)"
+    },
+    {
+      "source_type": "inline_comment",
+      "source_id": 4657702812,
+      "author": "prooflinedev[bot]",
+      "path": "reports.py",
+      "line": 55,
+      "created_at": "2026-11-22T10:26:52Z",
+      "body": "<!-- proofline:finding-series=01a202cb-23c3-758a-939b-393a58a393bc -->\n**Warning** \u00b7 Blocked export output can make scheduling fail\n\nThis change writes export rows to stdout while the SQLite read cursor is still active, holding a read lock if output stalls in default rollback-journal mode.\n\nA concurrent `schedule` can exceed SQLite\u2019s busy timeout and exit with an unhandled `OperationalError` at commit.\n\nExhaust the `SELECT` cursor before writing delivery rows to stdout.\n\n[View finding in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202ca-41c5-70b7-a064-c299489b96d6/findings/01a202cb-23c9-73f8-9121-f6737a99e713)"
+    }
+  ],
+  "raw": {
+    "reviews": [
+      {
+        "id": 6011717726,
+        "node_id": "PRR_kwDOV3dQfM8AAAABZlOIXg",
+        "user": {
+          "login": "prooflinedev[bot]",
+          "id": 318282779,
+          "node_id": "BOT_kgDOEvicGw",
+          "avatar_url": "https://avatars.githubusercontent.com/in/4636559?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/prooflinedev%5Bbot%5D",
+          "html_url": "https://github.com/apps/prooflinedev",
+          "followers_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "<!-- proofline:review-comment -->\n<!-- proofline:review-publication:612a96ea-b843-4d55-9b46-43a7d5998a58 -->\n**Proofline** has 2 new findings to review.\n\n[View full review in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202ca-41c5-70b7-a064-c299489b96d6)\n\n<!-- proofline:published-findings -->\n<!-- proofline:published-finding-series=01a202cb-23c8-7508-9b63-96f9215a60cc -->\n<!-- proofline:published-thread-series=01a202cb-23c8-7508-9b63-96f9215a60cc -->\n<!-- proofline:published-finding-series=01a202cb-23c3-758a-939b-393a58a393bc -->\n<!-- proofline:published-thread-series=01a202cb-23c3-758a-939b-393a58a393bc -->\n<!-- /proofline:published-findings -->\n<!-- proofline:published-code=01a202cb-23d1-73c9-9f12-69115957a0e1 -->\n<!-- proofline:published-code-thread=01a202cb-23d1-73c9-9f12-69115957a0e1 -->\n<!-- proofline:published-code=01a202cb-23c9-73f8-9121-f6737a99e713 -->\n<!-- proofline:published-code-thread=01a202cb-23c9-73f8-9121-f6737a99e713 -->",
+        "state": "COMMENTED",
+        "html_url": "https://github.com/Pratik8445/bench-run-proofline/pull/2#pullrequestreview-6011717726",
+        "pull_request_url": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/2",
+        "author_association": "NONE",
+        "is_copilot_code_review": false,
+        "copilot_code_review_effort": null,
+        "_links": {
+          "html": {
+            "href": "https://github.com/Pratik8445/bench-run-proofline/pull/2#pullrequestreview-6011717726"
+          },
+          "pull_request": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/2"
+          }
+        },
+        "submitted_at": "2026-11-22T10:26:52Z",
+        "commit_id": "9d551b83dc3a9b0c30868859ea97feef934e7b9b"
+      }
+    ],
+    "inline_comments": [
+      {
+        "url": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/comments/4657702811",
+        "pull_request_review_id": 6011717726,
+        "id": 4657702811,
+        "node_id": "PRRC_kwDOV3dQfM8AAAABFZ7nmw",
+        "diff_hunk": "@@ -51,11 +50,10 @@ def history(db, limit, cursor=None):\n \n \n def write_export(db, output):",
+        "path": "reports.py",
+        "commit_id": "9d551b83dc3a9b0c30868859ea97feef934e7b9b",
+        "original_commit_id": "9d551b83dc3a9b0c30868859ea97feef934e7b9b",
+        "user": {
+          "login": "prooflinedev[bot]",
+          "id": 318282779,
+          "node_id": "BOT_kgDOEvicGw",
+          "avatar_url": "https://avatars.githubusercontent.com/in/4636559?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/prooflinedev%5Bbot%5D",
+          "html_url": "https://github.com/apps/prooflinedev",
+          "followers_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "<!-- proofline:finding-series=01a202cb-23c8-7508-9b63-96f9215a60cc -->\n**Serious** \u00b7 Report names with commas or line breaks corrupt CSV exports\n\n`write_export` joins raw field values without CSV quoting.\n\nA report name containing a comma or line break can turn one delivery into extra columns or records.\n\nKeep streaming the query results, but write each row with `csv.writer.writerow`.\n\n[View finding in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202ca-41c5-70b7-a064-c299489b96d6/findings/01a202cb-23d1-73c9-9f12-69115957a0e1)",
+        "created_at": "2026-11-22T10:26:52Z",
+        "updated_at": "2026-11-22T10:26:52Z",
+        "html_url": "https://github.com/Pratik8445/bench-run-proofline/pull/2#discussion_r4657702811",
+        "pull_request_url": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/2",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/comments/4657702811"
+          },
+          "html": {
+            "href": "https://github.com/Pratik8445/bench-run-proofline/pull/2#discussion_r4657702811"
+          },
+          "pull_request": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/2"
+          }
+        },
+        "reactions": {
+          "url": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/comments/4657702811/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "start_line": null,
+        "original_start_line": null,
+        "start_side": null,
+        "line": 52,
+        "original_line": 52,
+        "side": "RIGHT",
+        "author_association": "NONE",
+        "original_position": 10,
+        "position": 10,
+        "subject_type": "line",
+        "is_copilot_code_review": false,
+        "copilot_code_review_severity": null,
+        "copilot_code_review_sources": []
+      },
+      {
+        "url": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/comments/4657702812",
+        "pull_request_review_id": 6011717726,
+        "id": 4657702812,
+        "node_id": "PRRC_kwDOV3dQfM8AAAABFZ7nnA",
+        "diff_hunk": "@@ -51,11 +50,10 @@ def history(db, limit, cursor=None):\n \n \n def write_export(db, output):\n-    writer = csv.writer(output)\n-    writer.writerow([\"id\", \"report\", \"scheduled_at\"])\n-    rows = db.execute(\"SELECT id, report, scheduled_at FROM deliveries ORDER BY id\").fetchall()\n+    output.write(\"id,report,scheduled_at\\n\")\n+    rows = db.execute(\"SELECT id, report, scheduled_at FROM deliveries ORDER BY id\")\n     for row in rows:",
+        "path": "reports.py",
+        "commit_id": "9d551b83dc3a9b0c30868859ea97feef934e7b9b",
+        "original_commit_id": "9d551b83dc3a9b0c30868859ea97feef934e7b9b",
+        "user": {
+          "login": "prooflinedev[bot]",
+          "id": 318282779,
+          "node_id": "BOT_kgDOEvicGw",
+          "avatar_url": "https://avatars.githubusercontent.com/in/4636559?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/prooflinedev%5Bbot%5D",
+          "html_url": "https://github.com/apps/prooflinedev",
+          "followers_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/followers",
+          "following_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/following{/other_user}",
+          "gists_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/subscriptions",
+          "organizations_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/orgs",
+          "repos_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/repos",
+          "events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/prooflinedev%5Bbot%5D/received_events",
+          "type": "Bot",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "body": "<!-- proofline:finding-series=01a202cb-23c3-758a-939b-393a58a393bc -->\n**Warning** \u00b7 Blocked export output can make scheduling fail\n\nThis change writes export rows to stdout while the SQLite read cursor is still active, holding a read lock if output stalls in default rollback-journal mode.\n\nA concurrent `schedule` can exceed SQLite\u2019s busy timeout and exit with an unhandled `OperationalError` at commit.\n\nExhaust the `SELECT` cursor before writing delivery rows to stdout.\n\n[View finding in Proofline](https://proofline.sh/orgs/by-id/01a202a0-cd61-7684-99bc-53c775b0de50/reviews/01a202ca-41c5-70b7-a064-c299489b96d6/findings/01a202cb-23c9-73f8-9121-f6737a99e713)",
+        "created_at": "2026-11-22T10:26:52Z",
+        "updated_at": "2026-11-22T10:26:52Z",
+        "html_url": "https://github.com/Pratik8445/bench-run-proofline/pull/2#discussion_r4657702812",
+        "pull_request_url": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/2",
+        "_links": {
+          "self": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/comments/4657702812"
+          },
+          "html": {
+            "href": "https://github.com/Pratik8445/bench-run-proofline/pull/2#discussion_r4657702812"
+          },
+          "pull_request": {
+            "href": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/2"
+          }
+        },
+        "reactions": {
+          "url": "https://api.github.com/repos/Pratik8445/bench-run-proofline/pulls/comments/4657702812/reactions",
+          "total_count": 0,
+          "+1": 0,
+          "-1": 0,
+          "laugh": 0,
+          "hooray": 0,
+          "confused": 0,
+          "heart": 0,
+          "rocket": 0,
+          "eyes": 0
+        },
+        "start_line": 52,
+        "original_start_line": 52,
+        "start_side": "RIGHT",
+        "line": 55,
+        "original_line": 55,
+        "side": "RIGHT",
+        "author_association": "NONE",
+        "original_position": 16,
+        "position": 16,
+        "subject_type": "line",
+        "is_copilot_code_review": false,
+        "copilot_code_review_severity": null,
+        "copilot_code_review_sources": []
+      }
+    ],
+    "issue_comments": []
+  }
+}
